@@ -1,0 +1,24 @@
+version: '3'
+services:
+  mysql:
+    container_name: wp-backend
+    image: "mysql:latest"
+    volumes:
+      - ./.mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_ROOT_PASSWORD: "12345"
+
+  wordpress:
+    container_name: wp-frontend
+    image: "wordpress:latest"
+    ports:
+      - "8080:80"
+    links:
+      - mysql
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: "12345"
+      WORDPRESS_DB_NAME: wordpress
+    
