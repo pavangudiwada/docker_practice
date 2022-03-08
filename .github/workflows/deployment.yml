@@ -20,7 +20,7 @@ jobs:
         working-directory: ${{env.FILE}}
         run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USERNAME}}/${{env.NAME}}:${{env.TAG}}
       - name: Push Docker Image
-        run: docker login -u ${{secrets.DOCKER_USERNAME}} --password-stdin ${{secrets.DOCKER_PASSWORD}}  && docker push ${{secrets.DOCKER_USERNAME}}/${{env.NAME}}:${{env.TAG}}
+        run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}  && docker push ${{secrets.DOCKER_USERNAME}}/${{env.NAME}}:${{env.TAG}}
 
         
         
