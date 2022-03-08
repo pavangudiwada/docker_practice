@@ -1,0 +1,7 @@
+version: '3'
+services:
+  reactapp:
+    container_name: "test_app"
+    build: .
+    ports:
+      - 3000:3000
