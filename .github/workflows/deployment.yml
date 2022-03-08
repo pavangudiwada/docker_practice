@@ -23,7 +23,7 @@ jobs:
 #           node-version: '16.14.0'
           
       - name: Docker Image
-        run: docker build . --file ${{PATH}} -t ${{env.NAMR}}:${{env.TAG}}
+        run: docker build . --file ${{env.PATH}} -t ${{env.NAMR}}:${{env.TAG}}
         
         
           
