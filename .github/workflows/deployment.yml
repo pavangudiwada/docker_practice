@@ -16,15 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
-#       - name: Install node
-#         uses: actions/setup-node@v3.0.0
-#         with:
-#           node-version: '16.14.0'
-          
       - name: Docker Image
         working-directory: ${{env.FILE}}
         run: docker build . --file Dockerfile --tag ${{env.NAME}}:${{env.TAG}}
+      - name: Push Docker Image
+        run: docker login -u ${{secrets.DOCKER_USERNAME}} -P ${{secrets.DOCKER_PASSWORD}} && docker push ${{env.NAME}}:${{env.TAG}}:latest
+
         
         
           
