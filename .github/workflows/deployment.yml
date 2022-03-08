@@ -18,9 +18,9 @@ jobs:
       - uses: actions/checkout@v2
       - name: Docker Image
         working-directory: ${{env.FILE}}
-        run: docker build . --file Dockerfile --tag ${{env.NAME}}:${{env.TAG}}
+        run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USERNAME}}/${{env.NAME}}:${{env.TAG}}
       - name: Push Docker Image
-        run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}} && docker push ${{env.NAME}}:${{env.TAG}}
+        run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}} --password-stdin && docker push ${{secrets.DOCKER_USERNAME}}/${{env.NAME}}:${{env.TAG}}
 
         
         
