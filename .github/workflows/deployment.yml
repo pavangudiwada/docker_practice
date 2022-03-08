@@ -25,7 +25,7 @@ jobs:
       - name: Docker Image
         uses: isbang/compose-action@v1.0.0
         with:
-          compose-file: ${{FILE}}
+          compose-file: ${{env.FILE}}
           
       
           
