@@ -9,7 +9,7 @@ on:
 env:
   TAG: v1
   NAME: reactapp
-  FILE: ractapp/Dockerfile
+  FILE: reactapp/Dockerfile
   
 jobs:
   build:
