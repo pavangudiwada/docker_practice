@@ -9,7 +9,7 @@ on:
 env:
   TAG: v1
   NAME: reactapp
-  PATH: ractapp/Dockerfile
+  FILE: ractapp/Dockerfile
   
 jobs:
   build:
@@ -23,7 +23,7 @@ jobs:
 #           node-version: '16.14.0'
           
       - name: Docker Image
-        run: docker build . --file ${{env.PATH}} -t ${{env.NAMR}}:${{env.TAG}}
+        run: docker build . --file ${{env.FILE}} -t ${{env.NAMR}}:${{env.TAG}}
         
         
           
