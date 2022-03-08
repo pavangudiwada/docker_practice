@@ -9,7 +9,7 @@ on:
 env:
   TAG: v1
   NAME: reactapp
-  FILE: https://github.com/pavangudiwada/docker_practice/blob/main/reactapp/docker-compose.yml
+  PATH: ractapp/Dockerfile
   
 jobs:
   build:
@@ -17,15 +17,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: Install node
-        uses: actions/setup-node@v3.0.0
-        with:
-          node-version: '16.14.0'
+#       - name: Install node
+#         uses: actions/setup-node@v3.0.0
+#         with:
+#           node-version: '16.14.0'
           
       - name: Docker Image
-        uses: isbang/compose-action@v1.0.0
-        with:
-          compose-file: ${{env.FILE}}
+        run: docker build . --file ${{PATH}} -t ${{env.NAMR}}:${{env.TAG}}
+        
+        
           
       
           
