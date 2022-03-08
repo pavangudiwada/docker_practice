@@ -9,7 +9,7 @@ on:
 env:
   TAG: v1
   NAME: reactapp
-  FILE: reactapp/Dockerfile
+  FILE: reactapp/
   
 jobs:
   build:
@@ -23,7 +23,8 @@ jobs:
 #           node-version: '16.14.0'
           
       - name: Docker Image
-        run: docker build . --file ${{env.FILE}} --tag ${{env.NAME}}:${{env.TAG}}
+        working-directory: ${{env.FILE}}
+        run: docker build . --file Dockerfile --tag ${{env.NAME}}:${{env.TAG}}
         
         
           
